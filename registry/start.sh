@@ -1,4 +1,4 @@
-#!/usr/local/bin/dumb-init /bin/bash
+#!/bin/bash
 
 IPFS=${IPFS_GATEWAY%%/}
 
@@ -16,6 +16,7 @@ fi
 cat /nginx.conf
 
 # TODO manage processes with supervisor
-uwsgi --daemonize /var/log/uwsgi.log --ini /wsgi.conf
+#uwsgi --daemonize /var/log/uwsgi.log --ini /wsgi.conf
 
-nginx -c /nginx.conf -g "daemon off;"
+#nginx -c /nginx.conf -g "daemon off;"
+exec "$@"
